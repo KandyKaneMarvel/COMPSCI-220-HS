@@ -17,7 +17,7 @@ public class prog52a {
 
             input.close();
         } catch (Exception e) {
-
+            System.out.print(e);
         }
     }
 }
