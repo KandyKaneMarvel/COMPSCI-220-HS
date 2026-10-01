@@ -2,7 +2,7 @@ package q1;
 
 import java.util.Scanner;
 
-public class LP510 {
+public class LP5_10 {
     public static void main(String[] args) {
         try {
             var input = new Scanner(System.in);

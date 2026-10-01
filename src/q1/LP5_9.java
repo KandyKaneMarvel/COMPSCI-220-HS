@@ -1,6 +1,6 @@
 package q1;
 
-public class LP59 {
+public class LP5_9 {
     public static void main(String[] args) {
         System.out.printf("%4s   %4s   %4s   %4s   %4s%n", "x^1", "x^2", "x^3", "x^4", "x^5");
 
