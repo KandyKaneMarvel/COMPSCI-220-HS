@@ -24,12 +24,13 @@ public class lp3_3 {
                 System.out.print(names[x] + " offset cost: ");
                 offsets[x] = input.nextDouble();
             }
+            System.out.println();
 
             double total = 0;
             for (int x = 0; x < names.length; x++) {
                 System.out.printf("+ %-10s Expenses: $%.2f%n", names[x], costs[x]);
                 total += costs[x];
-                System.out.printf("+ %-10s Offset: $%.2f%n", names[x], offsets[x]);
+                System.out.printf("- %-10s Offset: $%.2f%n", names[x], offsets[x]);
                 total -= offsets[x];
             }
             System.out.println("-".repeat(20));
