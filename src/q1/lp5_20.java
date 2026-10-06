@@ -27,6 +27,7 @@ public class lp5_20 {
             }
 
             System.out.printf("The number of vowels in %s is %d.", tempSentence, counter);
+            input.close();
         } catch (Exception e) {
             System.out.println(e);
         }
