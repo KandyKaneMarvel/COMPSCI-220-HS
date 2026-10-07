@@ -1,4 +1,4 @@
-package q1;
+package q1.Week1;
 
 public class LP5_9 {
     public static void main(String[] args) {
