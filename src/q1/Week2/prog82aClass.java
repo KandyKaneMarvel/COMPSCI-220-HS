@@ -3,7 +3,7 @@ package q1.Week2;
 import java.util.Scanner;
 
 public class prog82aClass {
-    public class ticketer {
+    public static class ticketer {
         int spd;
         int spdLimit;
         double fine;
@@ -28,11 +28,23 @@ public class prog82aClass {
             if (tempCalc <= 0) {
                 this.fine = 0;
             } else {
-                this.fine = (tempCalc * this.BASERATE) + this.BASEFINE;
+                this.fine = (tempCalc * BASERATE) + BASEFINE;
             }
+        }
+
+        public String getFine() {
+            if (this.fine == 0) {
+                calc();
+            }
+            return "$" + this.fine;
         }
     }
     public static void main(String[] args) {
-        
+        ticketer cop = new ticketer();
+
+        cop.calc();
+
+        System.out.printf("Fine" + "-".repeat(10) + "$%.2%f", cop.getFine());
     }
 }
+//COME BACK AND ADD OUTPUT, OLDER JAVA DOESN'T HAVE REPEAT OR VAR
