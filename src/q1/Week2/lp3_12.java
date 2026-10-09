@@ -12,30 +12,37 @@ public class lp3_12 {
             calc();
         }
 
-        public double prompt(String prompt) {
-            var inputPrompt = new Scanner(System.in);
-            System.out.print(prompt);
-            int tempPrompt = inputPrompt.nextInt();
-            inputPrompt.close();
-            return tempPrompt;
-        }
-
         public void calc() {
             double total = 0;
             for (double tempCost : costs) {
                 total += tempCost;
             }
-            //I'm gonna try to start using itr from now on (unless I'm using a table),
+            //I'm gonna try to start using itr (iteration) from now on (unless I'm using a table),
             //I think it's what Getka used
             for (int itr = 0; itr < costs.length; itr++) {
                 this.percents[itr] = (this.costs[itr] / total) * 100;
             }
         }
+
+        public double[] getPercents() {
+            return this.percents;
+         }
+    }
+
+    public static double prompt(String prompt) {
+            var inputPrompt = new Scanner(System.in);
+            System.out.print(prompt);
+            double tempPrompt = inputPrompt.nextDouble();
+            inputPrompt.close();
+            return tempPrompt;
     }
     public static void main(String[] args) {
         System.out.println("Enter the amount spent last month on the following items:\n");
         
-        double[] expenses = food
+        double[] expenses = {prompt("Food: "), prompt("Clothing: "), prompt("Entertainment: "), prompt("Rent: ")};
         ledger book = new ledger(expenses);
+        var percents = book.getPercents();
+        
+        
     }
 }
