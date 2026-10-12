@@ -43,6 +43,10 @@ public class lp3_12 {
         ledger book = new ledger(expenses);
         var percents = book.getPercents();
         
-        
+        System.out.println("Category\t\t\tBudget");
+        System.out.printf("Food\t\t\t%.2f %%\n", percents[0]);
+        System.out.printf("Clothing\t\t%.2f %%\n", percents[1]);
+        System.out.printf("Entertainment\t%.2f %%\n", percents[2]);
+        System.out.printf("Rent\t\t\t%.2f %%\n", percents[3]);
     }
 }
