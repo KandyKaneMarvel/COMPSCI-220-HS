@@ -86,4 +86,6 @@ public class prog1050a {
      public static double computePercent(List<salesrecord> records, int fIndex, String value) {
         return ((double) computeCount(records, fIndex, value) / records.size()) * 100;
      }
+
+     
 }
