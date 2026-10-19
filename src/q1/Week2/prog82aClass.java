@@ -47,4 +47,5 @@ public class prog82aClass {
         System.out.printf("Fine" + "-".repeat(10) + "$%.2%f", cop.getFine());
     }
 }
-//COME BACK AND ADD OUTPUT, OLDER JAVA DOESN'T HAVE REPEAT OR VAR
+/*
+ */

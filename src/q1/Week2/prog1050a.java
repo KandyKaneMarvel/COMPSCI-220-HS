@@ -91,55 +91,5 @@ public class prog1050a {
         return ((double) computeCount(records, fIndex, value) / records.size()) * 100;
      }
 
-     public static double computeProfitLostIn2012(List<salesrecord> records, String itemType) {
-        double lostProfit = 0;
-        for (var record : records) {
-            if (record.fields[2].equalsIgnoreCase(itemType) && record.fields[5].endsWith("2012")) {
-                lostProfit += record.getProfits();
-            }
-        }
-        return lostProfit;
-     }
-
-     public static int computeHighPriorityLateSales(List<salesrecord> records) {
-        int count = 0;
-        var dateFormat = new SimpleDateFormat("M/d/yyyy");
-        for (var record : records) {
-            if (record.fields[4].equalsIgnoreCase("H")) {
-                try {
-                    Date orderDate = dateFormat.parse(record.fields[5]);
-                    Date shipDate = dateFormat.parse(record.fields[7]);
-
-                    long diffInMs = Math.abs(shipDate.getTime()) - Math.abs(orderDate.getTime());
-                    long diffInDays = diffInMs / (1000 * 60 * 60 * 24);
-                    if (diffInDays > 3) {
-                        count++;
-                    }
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        return count;
-    }
-
-    public static String computeHighestProfit(List<salesrecord> records, int fIndex, String itemType) {
-        String highestCountry = "N/A";
-        double highestProfit = 0;
-        for (var record : records) {
-            if (record.fields[fIndex].equalsIgnoreCase(itemType)) {
-                double profit = record.getProfits();
-                if (profit > highestProfit) {
-                    highestProfit = profit;
-                    highestCountry = record.fields[1];
-                }
-            }
-        }
-        return highestCountry;
-    }
-
-    public static String computeMaxByField(List<salesrecord> records, int fIndex, String itemType, int resultFIndex) {
-        String topRegion = "N/A";
-        
-    }
+     
 }
