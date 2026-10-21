@@ -42,7 +42,7 @@ public class prog1050a {
     }
 
     public static void main(String[] args) {
-        var records = loadSalesData("Langdat/Lang1050a.csv");
+        var records = loadSalesData("Langdat\\Lang1050.csv");
         if (records != null) {
             var moneyFormat = new DecimalFormat("$#,###.00");
             System.out.println("Sales to Europe: " + computeCount(records, 0, "Europe"));
@@ -55,9 +55,16 @@ public class prog1050a {
             System.out.println("Region that bought the most snacks: " + computeMaxByField(records, 2, "Snacks", 0));
 
             //my part of the assignment
+            double profitsLost = computeProfits(records);
             System.out.println();
-            System.out.println("Number of Sales to African Nations: ");
-
+            System.out.println("Number of Sales to African Nations: " + (computeCount(records, 0, "Sub-Saharan Africa") + computeCount(records, 0, "Middle East and North Africa")));
+            deleteRecords(records, 1, "Kuwait");
+            limitUnitsByField(records, 100, 1, "Uganda", 2, "Cosmetics");
+            deleteRecords(records, 2, "Office Supplies");
+            deleteRecords(records, 4, "L", 1, "Sub-Saharan Africa");
+            deleteRecords(records, 4, "L", 1, "Middle East and North Africa");
+            profitsLost -= computeProfits(records);
+            System.out.println("Profits lost in trade war with Africa: " + moneyFormat.format(profitsLost));
         }
     }
 
@@ -199,12 +206,53 @@ public class prog1050a {
     public static void limitUnitsByField(List<salesrecord> records, int limit, int fIndex, String value) {
         for (var record : records) {
             if (record.fields[fIndex].equalsIgnoreCase(value)) {
-                int diffUnitsSold = 100 - (int)record.getUnitsSold();
                 record.fields[8] = "100";
                 record.fields[11] = "" + (100 * Double.parseDouble(record.fields[9]));
                 record.fields[12] = "" + (100 * Double.parseDouble(record.fields[10]));
                 record.fields[13] = "" + (Double.parseDouble(record.fields[11]) - Double.parseDouble(record.fields[12]));
+                //what's the proper way to do this?
+            }
+        }
+    }
+
+    public static void limitUnitsByField(List<salesrecord> records, int limit, int fIndex1, String value1, int fIndex2, String value2) {
+        for (var record : records) {
+            if (record.fields[fIndex1].equalsIgnoreCase(value1) && record.fields[fIndex2].equalsIgnoreCase(value2)) {
+                record.fields[8] = "100";
+                record.fields[11] = "" + (100 * Double.parseDouble(record.fields[9]));
+                record.fields[12] = "" + (100 * Double.parseDouble(record.fields[10]));
+                record.fields[13] = "" + (Double.parseDouble(record.fields[11]) - Double.parseDouble(record.fields[12]));
+                //what's the proper way to do this?
+            }
+        }
+    }
+
+    public static void deleteRecords(List<salesrecord> records, int fIndex, String value) {
+        for (int itr = 0; itr < records.size(); itr++) {
+            if (records.get(itr).fields[fIndex].equalsIgnoreCase(value)) {
+                records.remove(itr);
+            }
+        }
+    }
+
+    public static void deleteRecords(List<salesrecord> records, int fIndex1, String value1, int fIndex2, String value2) {
+        for (int itr = 0; itr < records.size(); itr++) {
+            if (records.get(itr).fields[fIndex1].equalsIgnoreCase(value1) && records.get(itr).fields[fIndex2].equalsIgnoreCase(value2)) {
+                records.remove(itr);
             }
         }
     }
 }
+/*
+Sales to Europe: 129286
+Cereal sold to Cambodia: 1164596
+Profits on meat: $11,933,838,488.00
+High priority sales percentage: 24.9974%
+Fruits profits lost in 2012: $.00
+High priority sales shipped late: 115166
+Country with highest profit on personal care items: Iceland
+Region that bought the most snacks: Sub-Saharan Africa
+
+Number of Sales to African Nations: 192442
+Profits lost in trade war with Africa: $25,374,082,505.66
+*/

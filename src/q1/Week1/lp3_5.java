@@ -26,6 +26,7 @@ public class lp3_5 {
 
             System.out.printf("You have been alive for %,d days.\n", days);
             System.out.printf("You have slept for %,d hours.", days * 8);
+            input.close();
         } catch (Exception e) {
             System.out.println(e);
         }
