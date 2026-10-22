@@ -51,7 +51,8 @@ public class lp3_12 {
         return tempPrompt;
     }
 }
-/*Enter the amount spent last month on the following items:
+/*
+Enter the amount spent last month on the following items:
 Food: 350
 Clothing: 300
 Entertainment: 200
