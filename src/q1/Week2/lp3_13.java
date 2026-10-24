@@ -27,32 +27,36 @@ public class lp3_13 {
     }
 
     public static void main(String[] args) {
-        var input = new Scanner(System.in);
+        try {
+            var input = new Scanner(System.in);
 
-        System.out.print("Enter the principal: ");
-        double principal = input.nextDouble();
-        System.out.print("Enter the number of years: ");
-        int years = input.nextInt();
-        System.out.print("Enter the interest: ");
-        double interest = input.nextDouble();
+            System.out.print("Enter the principal: ");
+            double principal = input.nextDouble();
+            System.out.print("Enter the number of years: ");
+            int years = input.nextInt();
+            System.out.print("Enter the interest: ");
+            double interest = input.nextDouble();
 
-        simpleInterest pFinder = new simpleInterest(principal, years, interest);
+            simpleInterest pFinder = new simpleInterest(principal, years, interest);
 
-        System.out.println("The value after the term is: "
-                + pFinder.computeSimpleInterest());
+            System.out.println("The value after the term is: "
+                   + pFinder.computeSimpleInterest());
 
-        System.out.print("\nEnter the amount: ");
-        double amount = input.nextDouble();
-        System.out.print("Enter the number of years: ");
-        years = input.nextInt();
-        System.out.print("Enter the interest: ");
-        interest = input.nextDouble();
+            System.out.print("\nEnter the amount: ");
+            double amount = input.nextDouble();
+            System.out.print("Enter the number of years: ");
+            years = input.nextInt();
+            System.out.print("Enter the interest: ");
+            interest = input.nextDouble();
 
-        simpleInterest aFinder = new simpleInterest(amount, years, interest);
+            simpleInterest aFinder = new simpleInterest(amount, years, interest);
 
-        System.out.println(
-                "The required investment is: " + aFinder.computePrinciple());
-        input.close();
+            System.out.println(
+                    "The required investment is: " + aFinder.computePrinciple());
+            input.close();
+        } catch (Exception e) {
+            System.out.println("Error: " + e);
+        }
     }
 
 }
