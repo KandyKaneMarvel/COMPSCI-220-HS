@@ -1,7 +1,6 @@
 package q1.Week3;
 
 import java.util.Scanner;
-import java.io.IOException;
 
 public class pelican39_10 {
  public static void main(String args[]) { 

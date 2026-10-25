@@ -9,7 +9,7 @@ import Algorithms.SearchAlgorithms;
 public class prog460a {
     public static void main(String[] args) {
         try {
-            var file = new Scanner(new File("Langdat/REPLACE.dat"));
+            var file = new Scanner(new File("Langdat/sort.dat"));
             var list = new ArrayList<Integer>();
 
             while (file.hasNext()) {
@@ -20,15 +20,15 @@ public class prog460a {
             int lcv = 0;
             var arr = new Integer[list.size()];
             for (var n : list) {
-                arr[lcv + 1] = n;
+                arr[lcv++] = n;
             }
 
-            int num;
+            var num = 0;
             var input = new Scanner(System.in);
             do {
                 System.out.print("Enter a number to search for: ");
                 num = input.nextInt();
-                int pos = SearchAlgorithms.binarySearchRecursive(list, num);
+                int pos = SearchAlgorithms.binarySearchRecursive(arr, Integer.valueOf(num));
                 System.out.print(pos == -1 ? "Your number does not appear in the list.\n"
                                             : "Your number occurs at index " + pos + "\n");
                 
