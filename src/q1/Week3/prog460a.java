@@ -28,8 +28,8 @@ public class prog460a {
             do {
                 System.out.print("Enter a number to search for: ");
                 num = input.nextInt();
-                int pos = SearchAlgorithms.binarySearchRecursive(arr, Integer.valueOf(num));
-                System.out.print(pos == -1 ? "Your number does not appear in the list.\n"
+                int pos = SearchAlgorithms.binarySearchRecursive(arr, num);
+                System.out.println(pos == -1 ? "Your number does not appear in the list.\n"
                                             : "Your number occurs at index " + pos + "\n");
                 
             } while (num != 0);
@@ -39,4 +39,17 @@ public class prog460a {
             System.out.println("Error: " + e.getMessage());
         }
     }
-}//can't get an output rn because codespaces is hallucinating errors
+}
+/*
+Enter a number to search for: 6
+Your number does not appear in the list.
+
+Enter a number to search for: 2
+Your number occurs at index 2
+
+Enter a number to search for: 1
+Your number occurs at index 0
+
+Enter a number to search for: 4
+Your number occurs at index 4
+*/

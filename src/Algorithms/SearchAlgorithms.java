@@ -14,11 +14,11 @@ public class SearchAlgorithms {
         int low = 0;
         int high = arr.length - 1;
         while (low <= high) {
-            int mid = low + (high - low) / 2;
+            int mid = (high + low) / 2;
             if (arr[mid].compareTo(target) == 0) {
                 return mid;
             }
-            if (arr[mid].compareTo(target) == 0) {
+            if (arr[mid].compareTo(target) <= 0) {
                 low = mid + 1;
             }
             else {
@@ -29,11 +29,10 @@ public class SearchAlgorithms {
     }
 
     public static <T extends Comparable<T>> int binarySearchRecursive(T[] arr, T target) {
-        return binarySearchRecursive(arr, target, 0, arr.length);
+        return binarySearchRecursive(arr, target, 0, arr.length - 1);
     }
 
     public static <T extends Comparable<T>> int binarySearchRecursive(T[] arr, T target, int low, int high) {
-        //base case
         if (low > high) {
             return -1;
         }
@@ -44,6 +43,6 @@ public class SearchAlgorithms {
         } else if (arr[mid].compareTo(target) < 0) {
             return binarySearchRecursive(arr, target, mid+1, high);
         }
-        return binarySearchRecursive(arr, target, low, mid+1);
+        return binarySearchRecursive(arr, target, low, mid-1);
     }
 }
