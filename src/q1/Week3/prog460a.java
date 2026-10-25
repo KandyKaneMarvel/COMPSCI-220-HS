@@ -23,7 +23,7 @@ public class prog460a {
                 arr[lcv + 1] = n;
             }
 
-            int num = 0;
+            int num;
             var input = new Scanner(System.in);
             do {
                 System.out.print("Enter a number to search for: ");
