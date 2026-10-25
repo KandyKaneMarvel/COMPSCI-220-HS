@@ -39,4 +39,4 @@ public class prog460a {
             System.out.println("Error: " + e.getMessage());
         }
     }
-}
+}//can't get an output rn because codespaces is hallucinating errors
