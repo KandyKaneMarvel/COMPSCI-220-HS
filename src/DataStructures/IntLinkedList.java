@@ -3,14 +3,6 @@ package DataStructures;
 import java.util.Iterator;
 
 /*
-public int getCount()
-public boolean add(int n, int pos) (random num 1-200)
-
-public int getByIndex(int pos)  (-1 if illegal position)
-public void removeFirst()
-public void removeLast()
-public int countLess10()
-public void removeIndex(int pos)
 public boolean contains(int n)
 public IntLinkedList getReverse()
 public Iterator<Integer> iterator()
@@ -29,7 +21,7 @@ public void clear()
 public class IntLinkedList implements Iterable<Integer> {
     private class Node {
         int data;
-        //i prefer mynext more so i'll be using that
+        //i prefer "mynext" more so i'll be using that instead of "next"
         Node mynext;
 
         private Node(int data) {
@@ -50,7 +42,25 @@ public class IntLinkedList implements Iterable<Integer> {
         head = node;
     }
 
-    public void addlast(int data) {
+    public boolean add(int n, int pos) {
+        if (pos == 0) {
+            addFront(n);
+            return true;
+        }
+        var current = head;
+        var node = new Node(n);
+        for (int x = 0; x < pos - 1; x++) {  
+            if (current == null) {
+                return false;
+            }
+            current = current.mynext;
+        }
+        node.mynext = current.mynext; 
+        current.mynext = node;
+        return true;
+    }
+
+    public void addLast(int data) {
         var node = new Node(data);
         if (head == null) {
             head = node;
@@ -63,16 +73,80 @@ public class IntLinkedList implements Iterable<Integer> {
         current.mynext = node;
     }
 
+    public void removeFirst() {
+        head = head.mynext;
+    }
+
+    public void removeIndex(int pos) {
+        var current = head;
+        for (int x = 0; x < pos - 1; x++) {
+            if (current.mynext == null) {
+                removeLast();
+                return;
+            }
+            current = current.mynext;
+        }
+        current.mynext = current.mynext.mynext;
+    }
+
+    public void removeLast() {
+        if (head == null) {
+            return;
+        }
+        var current = head;
+        while (current.mynext != null) {
+            current = current.mynext;
+        }
+        current = null;
+    }
+
     public boolean isEmpty() {
         return head == null;
     }
 
-    public int getFirst() {
+    public int countLess10() {
+        var current = head;
+        int count = 0;
+        while (current != null) {
+            if (current.data < 10) {
+                count++;
+            }
+            current = current.mynext;
+        }
+        return count;
+    }
 
+    public int getByIndex(int pos) {
+        var current = head;
+        for (int x = 0; x < pos; x++) {  
+            if (current.mynext == null) {
+                return -1;
+            }
+            current = current.mynext;
+        }
+        return current.data;
+    }
+
+    public int getFirst() {
+        return head.data;
     }
     
     public int getLast() {
-        
+        var current = head;
+        while (current.mynext != null) {
+            current = current.mynext;
+        }
+        return current.data;
+    }
+
+    public int getCount() {
+        var current = head;
+        int count = 0;
+        while (current.mynext != null) {
+            count++;
+            current = current.mynext;
+        }
+        return count;
     }
 
     public void print() {
