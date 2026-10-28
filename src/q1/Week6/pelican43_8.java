@@ -25,14 +25,19 @@ public class pelican43_8 {
 
     public static void main(String[] args) {
         var list = new ArrayList<BankAccount>();
-        var iter = list.iterator();
 
         String name = "";
         double deposit = 0;
         Scanner input = new Scanner(System.in);
         do {
             System.out.print("Please enter the name to whom the account belongs. (\"Exit\" to abort) ");
-            name = input.next();
+            if (!name.equals("")) {
+                input.nextLine();
+            }
+            name = input.nextLine();
+            if (name.toLowerCase().equals("exit")) {
+                break;
+            }
             System.out.print("Please enter the amount of the deposit. ");
             deposit = input.nextDouble();
 
@@ -40,8 +45,10 @@ public class pelican43_8 {
             System.out.println();
         } while (!name.toLowerCase().equals("exit"));
 
+        var iter = list.iterator();
+
         BankAccount ba = iter.next();
-        double maxBalance = ba.balance; //set last account as winner so far
+        double maxBalance = ba.balance;
         String maxName = ba.name;
         while(iter.hasNext()) { 
             if (ba.balance > maxBalance) {
@@ -57,3 +64,17 @@ public class pelican43_8 {
         input.close();
     }
 }
+/*
+Please enter the name to whom the account belongs. ("Exit" to abort) Jotaro Kujoh
+Please enter the amount of the deposit. 800
+
+Please enter the name to whom the account belongs. ("Exit" to abort) Enrico Pucci
+Please enter the amount of the deposit. 8000
+
+Please enter the name to whom the account belongs. ("Exit" to abort) Bruno Bucciarati
+Please enter the amount of the deposit. 4500
+
+Please enter the name to whom the account belongs. ("Exit" to abort) exit
+The account with the largest balance belongs to Enrico Pucci
+The amount is $8,000
+ */

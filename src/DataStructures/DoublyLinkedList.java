@@ -53,7 +53,14 @@ public class DoublyLinkedList <T extends Comparable<T>> implements Iterable<T> {
     }
 
     public void insert(int index, T element) {
-        //todo
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException();
+        }
+        var current = head;
+        for (int x = 0; x < index; x++) {
+            current = current.mynext;
+        }
+        
     }
 
     public void addSorted(T element) {

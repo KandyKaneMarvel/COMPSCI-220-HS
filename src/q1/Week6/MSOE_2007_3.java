@@ -15,7 +15,7 @@ public class MSOE_2007_3 {
         System.out.print("Enter length of side opposite Angle C: ");
         double cSide = input.nextDouble();
 
-        if (a + b + c < 181 && a + b + c > 179) {
+        if (a + b + c > 181 || a + b + c < 179) {
             System.out.println("ERROR! Angles are incorrect!");
         } else {
             a = Math.toRadians(a);
@@ -23,8 +23,15 @@ public class MSOE_2007_3 {
             c = Math.toRadians(c);
             double r = cSide * Math.sin(a/2) * Math.sin(b/2) * (1/Math.cos(c/2));
 
-            System.out.println("Radius: " + r);
+            System.out.printf("Radius: %.4f", r);
         }
         input.close();
     }
 }
+/*
+Enter Angle A: 12
+Enter Angle B: 78
+Enter Angle C: 90
+Enter length of side opposite Angle C: 10
+Radius: 0.9303
+ */

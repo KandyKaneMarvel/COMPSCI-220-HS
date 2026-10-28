@@ -67,6 +67,7 @@ public class pelican37_8 {
         double y = kbReader.nextDouble( ); 
         double xValue = line.getXvalue(y); 
         System.out.println("The x value corresponding to y = " + y + " is " + xValue);
+        kbReader.close();
     }
 }
 /*

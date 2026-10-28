@@ -7,14 +7,14 @@ public class MSOE_2007_2 {
         var input = new Scanner(System.in);
 
         System.out.print("Enter String: ");
-        String sentence = input.next();
+        String sentence = input.nextLine();
 
         char[] list = sentence.toCharArray();
         char[] vowels = {'a', 'e', 'i', 'o', 'u'};
         int count = 0;
         for (char n : list) {
             for (char v : vowels) {
-                if (n == v) {
+                if (Character.toLowerCase(n) == v) {
                     count++;
                 }
             }
@@ -24,3 +24,7 @@ public class MSOE_2007_2 {
         input.close();
     }
 }
+/*
+Enter String: Wow, I'm such a great coder.
+Your string contains 8 vowels!
+ */
