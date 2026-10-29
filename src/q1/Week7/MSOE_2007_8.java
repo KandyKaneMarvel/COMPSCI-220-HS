@@ -46,6 +46,8 @@ public class MSOE_2007_8 {
                 }
             }
         }
+
+        input.close();
     }
 }
 /*
