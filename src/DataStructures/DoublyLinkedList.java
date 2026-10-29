@@ -56,23 +56,73 @@ public class DoublyLinkedList <T extends Comparable<T>> implements Iterable<T> {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException();
         }
+        if (index == 0) {
+            addFront(element);
+            return;
+        }
         var current = head;
         for (int x = 0; x < index; x++) {
             current = current.mynext;
         }
-        
+        var node = new Node(element);
+        node.mynext = current;
+        node.prev = current.prev;
+        current.prev = node;
+        size++;
     }
 
     public void addSorted(T element) {
-        //todo
+        var node = new Node(element);
+
+        if (head == null) {
+            head = node;
+            tail = node;
+            return;
+        }
+
+        if (head.compareTo(node) > 0) {
+            node.mynext = head;
+            head.prev = node;
+            head = node;
+            return;
+        }
+
+        for (var current = head; current != null; current = current.mynext) {
+            if (current.compareTo(node) > 0) {
+                node.mynext = current;
+                node.prev = current.prev;
+                node.prev.mynext = node;
+                current.prev = node;
+                return;
+            }
+        }
+
+        node.mynext = tail;
+        tail.prev = node;
+        tail = node;
     }
 
     public void remove(int index) {
-        if (index < 0 || index > size) {
+        if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException();
         }
-
-        //todo
+        if (index == 0) {
+            head = head.mynext;
+            if (head != null) {
+                head.prev = null;
+            }
+            this.size--;
+            return;
+        }
+        var current = head;
+        for (int x = 0; x < index - 1; x++) {
+            current = current.mynext;
+        }
+        current.mynext = current.mynext.mynext;
+        if (current.mynext != null) {
+            current.mynext.prev = current;
+        }
+        this.size--;
     }
 
     public T get(int index) {
@@ -122,11 +172,38 @@ public class DoublyLinkedList <T extends Comparable<T>> implements Iterable<T> {
     }
 
     public void removeItem(T item) {
-        //todo
+        var current = head;
+        while (!current.data.equals(item)) {
+            current = current.mynext;
+            if (current == null) {
+                return;
+            }
+        }
+        if (current == head) {
+            head = head.mynext;
+            if (head != null) {
+                head.prev = null;
+            }
+            this.size--;
+            return;
+        }
+        
+        if (current.prev != null) {
+            current.prev.mynext = current.mynext;
+        }
+        if (current.mynext != null) {
+            current.mynext.prev = current.prev;
+        }
     }
 
     public T pop() {
-        //todo, remove tail and return it
+        if (tail == null) {
+            return null;
+        }
+        T data = tail.data;
+        tail = tail.prev;
+        size--;
+        return data;
     }
 
     public Iterator<T> iterator() {
