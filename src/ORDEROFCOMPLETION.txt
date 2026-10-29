@@ -1,7 +1,7 @@
 This file is soley for me, it's my check list of assignments and lectures.
 
 DUE OCTOBER 30TH (URGENT):
-1. Lecture 17 - Stacks and Queues
+X 1. Lecture 17 - Stacks and Queues
 2. Lecture 18 - Stack and Queue Implementations
 3. Prog285bStack
 4. Prog285bQueue
