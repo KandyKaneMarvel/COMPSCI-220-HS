@@ -2,11 +2,11 @@ This file is soley for me, it's my check list of assignments and lectures.
 
 DUE OCTOBER 30TH (URGENT):
 X 1. Lecture 17 - Stacks and Queues
-2. Lecture 18 - Stack and Queue Implementations
-3. Prog285bStack
-4. Prog285bQueue
-5. Lecture 19 - Linked List-based Stack Implementation
-6. Prog285bLLStack
+X 2. Lecture 18 - Stack and Queue Implementations
+X 3. Prog285bStack
+X 4. Prog285bQueue
+X 5. Lecture 19 - Linked List-based Stack Implementation
+X 6. Prog285bLLStack
 7. Fall Midterm Exam - Requires Respondus LockDown Browser + Screen Recording
 
 Due November 6th:
