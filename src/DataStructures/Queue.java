@@ -22,7 +22,7 @@ public class Queue<T extends Comparable<T>> {
         }
         queue[rear] = element;
         rear = (rear + 1) % capacity;
-        size--;
+        size++;
     }
 
     public T dequeue() {
