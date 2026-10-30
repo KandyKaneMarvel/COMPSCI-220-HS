@@ -1,5 +1,7 @@
 package DataStructures;
 
+import java.util.LinkedList;
+
 public class LinkedListStack <T extends Comparable<T>> {
     private final LinkedList<T> stack;
 
