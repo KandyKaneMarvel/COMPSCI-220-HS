@@ -1,6 +1,6 @@
 package Algorithms;
 
-@SuppressWarnings({"unchecked", "unused", "ManualArrayCopy"})
+@SuppressWarnings({"unused", "ManualArrayCopy"})
 public class SortAlgorithms {
     public static <T extends Comparable<T>> void swap(T[] arr, int i, int j) {
         T temp = arr[i];

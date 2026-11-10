@@ -1,7 +1,5 @@
 package q1.Week4;
 
-import java.util.Scanner;
-
 import Algorithms.SortAlgorithms;
 
 public class pelican40_1 {

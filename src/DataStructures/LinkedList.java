@@ -1,5 +1,6 @@
 package DataStructures;
 
+@SuppressWarnings("unused")
 public class LinkedList <T extends Comparable<T>> {
     private class Node {
         T data;

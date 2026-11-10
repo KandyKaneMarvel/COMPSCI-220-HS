@@ -2,6 +2,7 @@ package DataStructures;
 
 import java.util.Iterator;
 
+@SuppressWarnings("unused")
 public class CircularLinkedList<T extends Comparable<T>> implements Iterable<T> {
     private class Node {
         T data;
