@@ -1,6 +1,6 @@
 package q1.Week9.Prog1071h;
 
-public class unit {
+public class unit implements Comparable<unit> {
     private int code;
     private int quantity;
     private double price;
@@ -31,4 +31,8 @@ public class unit {
     public String toString() {
         return this.getName() + "\t" + this.quantity + "\t" + this.price;
     }
+
+    public int compareTo(unit a) {
+            return (int) (price * 1000 - a.price * 1000);
+        }
 }

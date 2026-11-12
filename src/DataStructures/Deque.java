@@ -5,7 +5,7 @@ public class Deque<T extends Comparable<T>> extends Queue<T> {
         super();
     }
 
-    public void push(T element) {
+    public void enqueueFront(T element) {
         if (size == capacity) {
             resize(size*2);
         }
@@ -14,15 +14,15 @@ public class Deque<T extends Comparable<T>> extends Queue<T> {
         size++;
     }
 
-    public void enqueue(T element) {
+    public void enqueueRear(T element) {
         super.enqueue(element);
     }
 
-    public T dequeue() {
+    public T dequeueFront() {
         return super.dequeue();
     }
 
-    public T pop() {
+    public T dequeueRear() {
         rear = (rear - 1 + capacity) % capacity;
         T element = queue[rear];
         size--;

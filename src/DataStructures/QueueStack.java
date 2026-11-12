@@ -8,26 +8,38 @@ public class QueueStack<T extends Comparable<T>> extends Queue<T>{
     }
 
     public void enqueue(T element) {
+        super.enqueue(element);
+    }
+
+    public void push(T element) {
         if (size == capacity) {
-            resize(capacity*2);
+            resize(size*2);
         }
-        queue[rear] = element;
-        rear = (rear + 1) % capacity;
+        front = (front - 1 + capacity) % capacity;
+        queue[front] = element;
         size++;
     }
 
     public T dequeue() {
-        T element = queue[front];
-        front = (front + 1) % capacity;
+        return super.dequeue();
+    }
+
+    public T pop() {
+        rear = (rear - 1 + capacity) % capacity;
+        T element = queue[rear];
         size--;
-        if (size == capacity/4) {
-            resize(capacity/2);
+        if (size == capacity / 4) {
+            resize(capacity / 2);
         }
         return element;
     }
 
-    public T peek() {
+    public T peekFront() {
         return queue[front];
+    }
+
+    public T peekRear() {
+        return queue[rear];
     }
 
     public int size() {

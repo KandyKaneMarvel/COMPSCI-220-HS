@@ -1,20 +1,13 @@
 This file is soley for me, it's my check list of assignments and lectures.
 
-DUE OCTOBER 30TH (URGENT):
-X 1. Lecture 17 - Stacks and Queues
-X 2. Lecture 18 - Stack and Queue Implementations
-X 3. Prog285bStack
-X 4. Prog285bQueue
-X 5. Lecture 19 - Linked List-based Stack Implementation
-X 6. Prog285bLLStack
-7. Fall Midterm Exam - Requires Respondus LockDown Browser + Screen Recording
-
-Due November 6th:
-1. MSOE 2007 #9
-2. Prog602bStack
-3. Prog1060bQueue
-4. Written Assignment 3: Stacks and Queues
-
 Due November 13th:
 1. Prog1071hStackFromQueue
 2. MSOE 2007 #6
+
+Due November 27th:
+1. Deque Lab
+2. Pelican 52-6 CircularDeque (implement and extend CircularQueue)
+
+Due December 4th:
+1. Prog1060hQueue (use built-in Queue or yours)
+2. Prog602bQueue
