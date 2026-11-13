@@ -29,10 +29,23 @@ public class unit implements Comparable<unit> {
     }
 
     public String toString() {
-        return this.getName() + "\t" + this.quantity + "\t" + this.price;
+        return this.code + "\t" + this.quantity + "\t" + this.price;
     }
 
     public int compareTo(unit a) {
-            return (int) (price * 1000 - a.price * 1000);
+        return (int) (this.price * 1000 - a.price * 1000);
+    }
+
+    //will return what's left of "a" if it exceeds the value of "quantity", else returns 0
+    public int sell(int a) {
+        this.quantity -= a;
+        if (quantity < 0) {
+            return quantity * (-1);
         }
+        return 0;
+    }
+
+    public void buy(int a) {
+        quantity += a;
+    }
 }
