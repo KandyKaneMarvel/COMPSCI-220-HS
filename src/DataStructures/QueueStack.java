@@ -39,7 +39,7 @@ public class QueueStack<T extends Comparable<T>> extends Queue<T>{
     }
 
     public T peekRear() {
-        return queue[rear];
+        return queue[(rear - 1 + capacity) % capacity];
     }
 
     public int size() {

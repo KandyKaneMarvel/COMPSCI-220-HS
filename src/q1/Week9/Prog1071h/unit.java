@@ -29,7 +29,7 @@ public class unit implements Comparable<unit> {
     }
 
     public String toString() {
-        return this.code + "\t" + this.quantity + "\t" + this.price;
+        return this.code + "\t\t" + this.quantity + "\t\t" + this.price;
     }
 
     public int compareTo(unit a) {

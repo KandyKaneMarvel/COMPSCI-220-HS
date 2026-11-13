@@ -14,6 +14,7 @@ public class prog1071h {
             var file = new Scanner(new File("Langdat\\bginvtry.txt"));
             var data = new QueueStack<unit>();
 
+            System.out.println("Starting merchandise inventory:");
             while (file.hasNext()) {
                 int c = file.nextInt();
                 int q = file.nextInt();
@@ -21,7 +22,7 @@ public class prog1071h {
 
                 data.enqueue(new unit(c, q, p));
 
-                System.out.println(data.peekFront());
+                System.out.println(new unit(c, q, p));
             }
             System.out.println();
             file.close();
@@ -38,8 +39,8 @@ public class prog1071h {
 
                     var tempData = new QueueStack<unit>();
 
-                    while (data.peekRear().getCode() != cd) {
-                        tempData.enqueue(data.pop());
+                    while (!(data.peekRear().getCode() == cd && data.peekRear().getPrice() == prc))  {
+                        tempData.push(data.pop());
                         if (data.peekRear() == null) {
                             break;
                         }
@@ -47,6 +48,14 @@ public class prog1071h {
 
                     if (data.peekRear() == null) {
                         data.enqueue(new unit(cd, amnt, prc));
+                    } else {
+                        var temp = data.pop();
+                        temp.buy(amnt);
+                        tempData.push(temp);
+                    }
+
+                    while (tempData.peekRear() != null) {
+                        data.enqueue(tempData.pop());
                     }
                 } else if (com.equalsIgnoreCase("s")) {
                     int cd = input.nextInt();
@@ -73,7 +82,7 @@ public class prog1071h {
                         }
                     }
 
-                    while (tempData.peekFront() != null) {
+                    while (tempData.peekRear() != null) {
                         data.enqueue(tempData.pop());
                     }
                 }
@@ -90,3 +99,39 @@ public class prog1071h {
         }
     }
 }
+/*
+Starting merchandise inventory:
+1               50              1298.0
+2               50              107.5
+3               100             248.85
+4               5000            1.07
+5               20              489.75
+6               5               586.24
+7               30              84.23
+8               600             24.73
+9               1500            19.99
+10              15              238.99
+
+Ending merchandise inventory:
+1               2               1305.75
+6               4               600.0
+5               20              510.25
+5               2               489.75
+4               5000            1.07
+9               860             19.99
+2               2               111.25
+7               10              87.5
+3               25              275.55
+1               4               1355.0
+8               600             24.73
+7               30              84.23
+10              9               238.99
+10              15              250.0
+3               62              248.85
+1               7               1325.0
+9               150             21.25
+4               750             1.1
+ */
+//wrong output? don't know why, must be a different buysell cause I can't think of any reason there would be
+//like 3 more units in my output rather than the example
+//also i really hope I did QueueStack right, I don't know what was meant by what you said
